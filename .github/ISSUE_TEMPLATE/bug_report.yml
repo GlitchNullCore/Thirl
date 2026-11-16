@@ -1,0 +1,62 @@
+name: Bug report
+description: Report a reproducible issue in Thirl.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search open and closed issues before submitting. Reports and attachments are public. Remove personal information and secrets before posting.
+  - type: input
+    id: build
+    attributes:
+      label: Thirl build
+      description: Enter the version or filename. Include both host and client builds if they differ.
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - Windows host
+        - Android client
+        - Steam Frame client
+        - Streaming or pairing
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Setup
+      description: Include the headset model and OS version. For host or streaming issues, include the Windows version, GPU, and OpenXR runtime if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Connect ...
+        3. Start ...
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What happened?
+      description: Include the exact error message if shown.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Logs or screenshots
+      description: For Windows issues, attach a relevant excerpt from %LOCALAPPDATA%\Thirl\bringup.log if available.
