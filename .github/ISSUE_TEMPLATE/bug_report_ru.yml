@@ -1,0 +1,62 @@
+name: Баг-репорт (RU)
+description: Сообщить об ошибке в Thirl.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Поищи похожие отчёты среди открытых и закрытых Issues. Отчёты и вложения видны всем, у кого есть доступ к репозиторию. Удали из логов личные данные и секреты.
+  - type: input
+    id: build
+    attributes:
+      label: Версия Thirl
+      description: Укажи версию или имя файла. Если версии на ПК и гарнитуре различаются, укажи обе.
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Где возникла проблема?
+      options:
+        - Thirl на Windows
+        - Клиент Android
+        - Клиент Steam Frame
+        - Трансляция или подключение
+        - Не знаю
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Устройства и система
+      description: Укажи модель гарнитуры и версию её ОС. Если проблема связана с ПК или трансляцией, добавь версию Windows, модель видеокарты и выбранную среду OpenXR.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Как воспроизвести?
+      placeholder: |
+        1. Открыть ...
+        2. Подключить ...
+        3. Запустить ...
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Что произошло?
+      description: Если появилось сообщение об ошибке, скопируй его текст.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Что должно было произойти?
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Логи или скриншоты
+      description: Для проблем в Windows можно приложить нужный фрагмент лога из %LOCALAPPDATA%\Thirl\bringup.log.
